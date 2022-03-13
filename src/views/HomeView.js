@@ -1,22 +1,22 @@
 import React from 'react';
 
 const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   title: {
+    display: 'block',
+    marginLeft: '50px',
+    marginRight: '50px',
     fontWeight: 500,
-    fontSize: 48,
+    fontSize: 35,
     textAlign: 'center',
   },
 };
 
 const HomeView = () => (
-  <div style={styles.container}>
-    <h1 style={styles.title}>Hello 💁‍♀️</h1>
+  <div>
+    <h1 style={styles.title}>
+      If for some reason in the 21st century you suddenly needed a phone book,
+      then you are strange. Anyway, this website is for you.
+    </h1>
   </div>
 );
 

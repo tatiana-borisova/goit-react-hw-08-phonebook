@@ -16,7 +16,10 @@ export default function ContactsView() {
   const isLoadingContacts = useSelector(getLoading);
   const isLoggedIn = useSelector(getIsLoggedIn);
 
-  useEffect(() => dispatch(fetchContacts()), [dispatch]);
+  useEffect(
+    () => isLoggedIn && dispatch(fetchContacts()),
+    [dispatch, isLoggedIn],
+  );
 
   return isLoggedIn ? (
     <>
@@ -34,16 +37,17 @@ export default function ContactsView() {
       </Section>
     </>
   ) : (
-    <p
+    <h1
       style={{
         display: 'block',
-        marginTop: '40px',
+        marginLeft: '50px',
+        marginRight: '50px',
         fontWeight: 500,
-        fontSize: 40,
+        fontSize: 35,
         textAlign: 'center',
       }}
     >
       You are not logged in
-    </p>
+    </h1>
   );
 }

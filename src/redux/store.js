@@ -1,6 +1,8 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import {
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -8,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 import contactsReduser from 'redux/contacts/contacts-reduser';
 import authReduser from 'redux/auth/auth-slice';
@@ -28,7 +29,7 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     contacts: contactsReduser,
     auth: persistReducer(authPersistConfig, authReduser),
@@ -37,7 +38,4 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-// const persistor = persistStore(store);
-// const allStore = { store, persistor };
-
-export default store;
+export const persistor = persistStore(store);
