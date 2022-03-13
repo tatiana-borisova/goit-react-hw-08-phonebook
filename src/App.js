@@ -8,7 +8,7 @@ import LoginView from 'views/LoginView';
 
 const App = () => {
   return (
-    <>
+    <div style={{ marginLeft: '30px', marginRight: '30px' }}>
       <AppBar />
 
       <Routes>
@@ -16,11 +16,10 @@ const App = () => {
         <Route path="/register" element={<RegisterView />} />
         <Route path="/login" element={<LoginView />} />
         <Route path="/contacts" element={<ContactsView />} />
-
         <Route path="*" element={<HomeView />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
-    </>
+    </div>
   );
 };
 

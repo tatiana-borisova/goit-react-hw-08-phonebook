@@ -38,7 +38,7 @@ export default function LoginView() {
 
   return (
     <div>
-      <h1>Sign In</h1>
+      <h1>Sign in</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
@@ -61,7 +61,7 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Sign In</button>
+        <button type="submit">Sign in</button>
       </form>
     </div>
   );
