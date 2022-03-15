@@ -25,7 +25,7 @@ const App = () => {
   return isFetchingCurrentUser ? (
     <Loader />
   ) : (
-    <div style={{ paddingLeft: '40px', paddingRight: '40px' }}>
+    <div style={{ width: '75%', margin: '0 auto' }}>
       <AppBar />
 
       <Suspense fallback={<Loader />}>

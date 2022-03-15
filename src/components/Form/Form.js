@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { getItems } from 'redux/contacts/contacts-selectors';
 import { onSubmitHandler } from 'redux/contacts/contacts-operations';
 import s from './Form.module.css';
+import findData from 'helpers/findData';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -20,17 +21,11 @@ const Form = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    const isNameHere = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase(),
-    );
-
-    const isNumberHere = contacts.find(
-      contact => contact.number.toLowerCase() === number.toLowerCase(),
-    );
+    const isNameHere = findData(contacts, name);
+    const isNumberHere = findData(contacts, number);
 
     if (isNameHere || isNumberHere) {
-      alert(
+      toast.error(
         `${isNameHere ? name : ''} ${
           isNumberHere ? number : ''
         } is already in contacts`,

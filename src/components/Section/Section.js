@@ -16,5 +16,5 @@ Section.defaultProps = {
 
 Section.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
