@@ -17,7 +17,7 @@ export const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('users/signup', credentials);
     token.set(data.token);
-    toast.success('You have successfully registered!');
+    toast.success(data.user.name + ', you have successfully registered!');
     return data;
   } catch (error) {
     toast.error('This email already exists.');
@@ -28,7 +28,7 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
-    toast.success('You have successfully logged in!');
+    toast.success(data.user.name + ', you have successfully logged in!');
     return data;
   } catch (error) {
     toast.error('You entered the wrong email or password');
